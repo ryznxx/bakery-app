@@ -52,16 +52,20 @@ Pastikan file `android/app/src/main/AndroidManifest.xml` telah menyertakan izin 
 ## 📂 Struktur Proyek
 
 ```
-lib/
-├── database/           
-│   └── db_manager.dart        # Logic Database Manager
-├── models/             
-│   └── item_model.dart        # Definisi kelas data (BakeryItem, Purchase)
-├── pages/              
-│   ├── admin_page.dart        # Menampilkan riwayat transaksi
-│   ├── buy_page.dart          # Input pembelian dan GPS
-│   └── home_page.dart         # Daftar item dan navigasi utama
-└── main.dart                  # Titik masuk aplikasi dan inisialisasi DB
+.
+├──  database 
+│   ├──  helper 
+│   │   └──  helpert.dart 
+│   └──  models 
+│       └──  models.dart 
+├──  main.dart 
+└──  pages 
+    ├──  admin 
+    │   └──  admin_page.dart 
+    ├──  buy 
+    │   └──  buy_page.dart 
+    └──  home 
+        └──  home_page.dart 
 ```
 
 ---
