@@ -1,118 +1,120 @@
-🍞 Bakery App | Aplikasi Penjualan Roti (VSGA Komdigi DTS)
+````markdown
+# 🍞 Bakery App | Aplikasi Penjualan Roti (VSGA Komdigi DTS)
 
-Aplikasi mobile sederhana berbasis Android (target platform) yang berfungsi untuk mencatat transaksi penjualan roti, mencakup input data pembeli, pengambilan lokasi GPS, dan penyimpanan data lokal menggunakan database SQLite melalui library Sqflite di Flutter.
+Aplikasi mobile sederhana berbasis **Android (target platform)** yang berfungsi untuk mencatat transaksi penjualan roti.  
+Meliputi input data pembeli, pengambilan lokasi GPS, serta penyimpanan data lokal menggunakan **SQLite (Sqflite)** di **Flutter**.
 
-Proyek ini dibuat sebagai syarat kelulusan dan demonstrasi keahlian pada program sertifikasi VSGA Komdigi Digital Talent Scholarship (DTS).
+Proyek ini dibuat sebagai **syarat kelulusan dan demonstrasi keahlian** pada program sertifikasi **VSGA Komdigi Digital Talent Scholarship (DTS)**.
 
-🚀 Fitur Utama
+---
 
-Daftar Produk: Menampilkan daftar roti (dummy data) yang tersedia.
+## 🚀 Fitur Utama
 
-Pencatatan Pembelian: Halaman khusus untuk mencatat nama pembeli dan item yang dibeli.
+- **Daftar Produk**  
+  Menampilkan daftar roti (dummy data) yang tersedia.
 
-Integrasi GPS: Mengambil dan menyimpan koordinat Latitude dan Longitude pembeli saat transaksi dilakukan, menggunakan library geolocator.
+- **Pencatatan Pembelian**  
+  Halaman khusus untuk mencatat nama pembeli dan item yang dibeli.
 
-Penyimpanan Lokal: Menyimpan semua riwayat transaksi secara persisten di perangkat menggunakan Sqflite (SQLite database lokal).
+- **Integrasi GPS**  
+  Mengambil dan menyimpan koordinat *Latitude* dan *Longitude* pembeli saat transaksi dilakukan (library: `geolocator`).
 
-Admin Dashboard: Halaman terpisah untuk menampilkan seluruh riwayat pembelian yang tersimpan dalam database lokal, diurutkan berdasarkan waktu terbaru.
+- **Penyimpanan Lokal**  
+  Menyimpan seluruh riwayat transaksi di database lokal menggunakan `Sqflite`.
 
-🛠️ Teknologi yang Digunakan
+- **Admin Dashboard**  
+  Halaman untuk menampilkan seluruh riwayat pembelian yang tersimpan di database lokal, diurutkan berdasarkan waktu terbaru.
 
-Kategori
+---
 
-Teknologi/Library
+## 🛠️ Teknologi yang Digunakan
 
-Kegunaan
+| Kategori       | Teknologi / Library | Kegunaan |
+|----------------|--------------------|-----------|
+| **Framework**  | Flutter (Dart)     | Pengembangan aplikasi multiplatform (fokus Android) |
+| **Database**   | Sqflite            | Driver untuk database SQLite lokal (penyimpanan persisten) |
+| **Peta/Lokasi**| Geolocator         | Mengakses dan meminta izin lokasi GPS |
+| **Utility**    | path               | Mengelola direktori dan path database lokal |
+| **Utility**    | intl               | Format tanggal dan waktu untuk tampilan admin |
 
-Framework
+---
 
-Flutter (Dart)
+## ⚙️ Konfigurasi Penting (Wajib Android)
 
-Pengembangan Aplikasi Multi-platform (Fokus Android)
+Pastikan file `android/app/src/main/AndroidManifest.xml` telah menyertakan izin lokasi berikut:
 
-Database
-
-Sqflite
-
-Driver untuk database SQLite lokal (Penyimpanan Persisten)
-
-Peta/Lokasi
-
-Geolocator
-
-Mengakses dan meminta izin untuk data GPS (Latitude, Longitude)
-
-Utility
-
-path
-
-Membantu mendapatkan dan mengelola path database lokal
-
-Utility
-
-intl
-
-Formatting tanggal dan waktu untuk tampilan Admin Page
-
-⚙️ Konfigurasi Penting (Wajib Android)
-
-Pastikan file android/app/src/main/AndroidManifest.xml telah menyertakan izin lokasi untuk geolocator:
-
+```xml
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+````
 
+---
 
-📂 Struktur Proyek
+## 📂 Struktur Proyek
 
-Struktur proyek diorganisasi untuk memenuhi praktik terbaik pemisahan kekhawatiran (separation of concerns):
-
+```
 lib/
-├── database/           # Logic Database Manager (DbManager)
-│   └── db_manager.dart
-├── models/             # Definisi kelas data (BakeryItem, Purchase)
-│   └── item_model.dart
-├── pages/              # Halaman UI Aplikasi
-│   ├── admin_page.dart # Menampilkan riwayat transaksi
-│   ├── buy_page.dart   # Input pembelian dan GPS
-│   └── home_page.dart  # Daftar item dan navigasi
-└── main.dart           # Titik masuk aplikasi dan inisialisasi DB
+├── database/           
+│   └── db_manager.dart        # Logic Database Manager
+├── models/             
+│   └── item_model.dart        # Definisi kelas data (BakeryItem, Purchase)
+├── pages/              
+│   ├── admin_page.dart        # Menampilkan riwayat transaksi
+│   ├── buy_page.dart          # Input pembelian dan GPS
+│   └── home_page.dart         # Daftar item dan navigasi utama
+└── main.dart                  # Titik masuk aplikasi dan inisialisasi DB
+```
 
+---
 
-👨‍💻 Panduan Instalasi dan Menjalankan Proyek
+## 👨‍💻 Panduan Instalasi & Menjalankan Proyek
 
-Prasyarat
+### Prasyarat
 
-Flutter SDK terinstal dan dikonfigurasi.
+* Flutter SDK sudah terinstal & dikonfigurasi.
+* Android Studio / VS Code dengan plugin Flutter.
+* Emulator Android atau perangkat fisik dengan USB Debugging aktif.
 
-Android Studio / VS Code dengan plugin Flutter.
+### Langkah-langkah
 
-Emulator Android atau perangkat fisik dengan USB debugging diaktifkan.
+1. **Clone repositori:**
 
-Langkah-langkah
+   ```bash
+   git clone [URL_REPOSITORI_ANDA]
+   cd bakery_app
+   ```
 
-Clone Repositori:
+2. **Dapatkan dependensi:**
 
-git clone [URL_REPOSITORI_ANDA]
-cd bakery_app
+   ```bash
+   flutter pub get
+   ```
 
+3. **Jalankan aplikasi:**
+   Pastikan emulator atau perangkat Anda sudah terhubung:
 
-Dapatkan Dependensi:
+   ```bash
+   adb devices
+   flutter run
+   ```
 
-flutter pub get
+---
 
+## 🧠 Tips Debugging (Mengambil Database SQLite)
 
-Jalankan Aplikasi:
-Pastikan emulator atau perangkat Anda sudah terhubung (adb devices).
+Jika ingin memeriksa isi database secara langsung:
 
-flutter run
-
-
-Tips Debugging (Mengambil DB)
-
-Jika Anda perlu memeriksa data yang tersimpan di SQLite secara langsung (misalnya saat ujian), gunakan perintah adb untuk menarik file database dari perangkat:
-
-# Ganti bakery_app.db dengan nama file yang Anda inginkan
+```bash
+# Ganti bakery_app.db dengan nama file yang diinginkan
 adb exec-out run-as com.example.bakery_app cat databases/bakery.db > bakery_app.db
+```
 
+File `bakery_app.db` yang berhasil ditarik dapat dibuka menggunakan alat seperti
+**DB Browser for SQLite** untuk melihat data transaksi.
 
-Setelah ditarik, file bakery_app.db dapat dibuka menggunakan alat seperti DB Browser for SQLite.
+---
+
+## 📜 Lisensi
+
+Proyek ini dibuat untuk keperluan pendidikan dan demonstrasi.
+Silakan modifikasi, gunakan, dan kembangkan sesuai kebutuhan.
