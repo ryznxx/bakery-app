@@ -1,4 +1,3 @@
-````markdown
 # 🍞 Bakery App | Aplikasi Penjualan Roti (VSGA Komdigi DTS)
 
 Aplikasi mobile sederhana berbasis **Android (target platform)** yang berfungsi untuk mencatat transaksi penjualan roti.  
